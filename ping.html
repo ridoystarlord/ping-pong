@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @keyframes leftballanimation {
+        0%,
+        99% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate(810px);
+          transition: transform 1s linear;
+        }
+      }
+      @keyframes rightballanimation {
+        0%,
+        99% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate(-800px, 0);
+          transition: transform 1s linear;
+        }
+      }
+      @keyframes end {
+        0%,
+        100% {
+          opacity: 0;
+          transform: translate(0, 0);
+          transition: transform 1s linear;
+        }
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .field {
+        background-color: cyan;
+        width: 100%;
+        height: 500px;
+        display: flex;
+        border: 2px solid black;
+      }
+      .item {
+        width: 20%;
+        height: 100%;
+        flex-grow: 1;
+      }
+      .net-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .net {
+        top: 0;
+        height: 100%;
+        border-left: 10px solid white;
+      }
+      .leftbat {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .rightbat {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .leftball {
+        position: relative;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .field:hover .leftbat {
+        transform: translate(50px);
+        transition: transform 1s linear;
+      }
+      .field:hover .rightbat {
+        transform: translate(-80px);
+        transition: transform 1s linear 1.5s;
+      }
+      .field:hover .leftball .ball {
+        animation: leftballanimation 1s linear 1s 1;
+      }
+      .field:hover .rightball .ball {
+        animation: rightballanimation 1s linear 2s 1;
+      }
+      .rightball {
+        align-items: center;
+        justify-content: flex-end;
+        display: flex;
+      }
+      .rightball .ball {
+        opacity: 0;
+      }
+      .ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+      }
+      .field:hover .leftball {
+        animation: end 1s linear 2s 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="field">
+      <div class="item leftbat">
+        <img src="/images/pingpongbat.png" alt="Left Bat" />
+      </div>
+      <div class="item leftball">
+        <div class="ball"></div>
+      </div>
+      <div class="item net-container">
+        <div class="net"></div>
+      </div>
+      <div class="item rightball">
+        <div class="ball"></div>
+      </div>
+      <div class="item rightbat">
+        <img src="/images/pingpongbat.png" alt="Right Bat" />
+      </div>
+    </div>
+  </body>
+</html>
